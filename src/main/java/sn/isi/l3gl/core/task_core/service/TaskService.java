@@ -29,4 +29,14 @@ public class TaskService {
     public List<Task> listTasks() {
         return taskRepository.findAll();
     }
+
+
+    // Mettre a jour le status d'une tache
+    public Task updateStatus(Long id, Status status) {
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Task not found"));
+
+        task.setStatus(status);
+        return taskRepository.save(task);
+    }
 }
