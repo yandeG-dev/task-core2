@@ -1,0 +1,29 @@
+package sn.isi.l3gl.core.task_core.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Task {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String title;
+    private String description;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+
+    public void setStatus(Status status) {
+    }
+}
