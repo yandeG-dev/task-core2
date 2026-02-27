@@ -39,4 +39,9 @@ public class TaskService {
         task.setStatus(status);
         return taskRepository.save(task);
     }
+    // Compter les taches terminees
+    public long countCompletedTasks() {
+        return taskRepository.countByStatus(Status.DONE);
+    }
+
 }
